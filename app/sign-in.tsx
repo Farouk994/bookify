@@ -15,7 +15,9 @@ export default function SignIn() {
   return (
     <GestureHandlerRootView>
       <SafeAreaView className='bg-white h-full'>
-        <ScrollView contentContainerStyle={{ height: '100%' }}>
+        <ScrollView
+          contentContainerStyle={{ height: '100%', backgroundColor: '#ffffff' }}
+        >
           <Image
             source={images.onboarding}
             className='w-full h-4/6'
