@@ -11,7 +11,7 @@ interface User {
 
 interface GlobalContextType {
   isLoggedIn: boolean;
-  data: User | null;
+  user: User | null;
   loading: boolean;
   refetch: () => void;
 }
@@ -36,7 +36,9 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
   const isLoggedIn = !!user; // if user is present, user is logged in
   //   console.log(JSON.stringify(user, null, 2));
   return (
-    <GlobalContext.Provider value={{ isLoggedIn, user, loading, refetch }}>
+    <GlobalContext.Provider
+      value={{ isLoggedIn, user: user || null, loading, refetch }}
+    >
       {children}
     </GlobalContext.Provider>
   );

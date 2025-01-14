@@ -25,7 +25,7 @@ interface SettingsItemProps {
 
 const Profile = () => {
   // fetch user to display name and avatar
-  const { data, refetch } = useGlobalContext();
+  const { refetch, user } = useGlobalContext();
   const handleLogout = async () => {
     const result = await logout();
     if (result) {
@@ -74,13 +74,13 @@ const Profile = () => {
         <View className='flex-row justify-center flex mt-5'>
           <View className='flex flex-col items-center relative mt-5'>
             <Image
-              source={{ uri: data?.avatar }}
+              source={{ uri: user?.avatar }}
               className='size-44 relative rounded-full'
             />
             <TouchableOpacity className='absolute bottom-11 right-2'>
               <Image source={icons.edit} className='size-9' />
             </TouchableOpacity>
-            <Text className='text-2xl font-rubik-bold  mt-2'>{data?.name}</Text>
+            <Text className='text-2xl font-rubik-bold  mt-2'>{user?.name}</Text>
           </View>
         </View>
         <View className='flex flex-col mt-10'>

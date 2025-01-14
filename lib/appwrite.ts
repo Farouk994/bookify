@@ -26,7 +26,7 @@ export async function login() {
       OAuthProvider.Google,
       redirectUri
     );
-    if (!response) throw new Error("Create OAuth2 token failed");
+    if (!response) throw new Error('Create OAuth2 token failed');
     const browserResult = await openAuthSessionAsync(
       response.toString(),
       redirectUri
@@ -35,16 +35,11 @@ export async function login() {
 
     if (browserResult.type !== 'success') throw new Error('Failed to login');
     const url = new URL(browserResult.url);
-    // console.log(url, '=========> url'); // pass
     const secret = url.searchParams.get('secret')?.toString();
-    console.log('Secret:', secret);
-    // console.log(secret, '=========> secret')
     const userId = url.searchParams.get('userId')?.toString();
-    console.log('User ID:', userId);
     if (!secret || !userId) throw new Error('Failed to login, missing data');
     const session = await account.createSession(userId, secret);
     if (!session) throw new Error('Failed to login, session not created');
-
     return true;
   } catch (error) {
     console.error(error);
