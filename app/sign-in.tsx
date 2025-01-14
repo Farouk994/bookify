@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, Touchable } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
@@ -13,7 +13,7 @@ export default function SignIn() {
     console.log('Login');
   };
   return (
-    <GestureHandlerRootView>
+    <GestureHandlerRootView style={{ flex: 1, backgroundColor: '#ffffff' }}>
       <SafeAreaView className='bg-white h-full'>
         <ScrollView
           contentContainerStyle={{ height: '100%', backgroundColor: '#ffffff' }}
@@ -32,7 +32,7 @@ export default function SignIn() {
               <Text className='text-primary-300'>Your Ideal Home</Text>
             </Text>
             <Text className='text-lg font-rubik text-black-200 text-center mt-12'>
-              Login to book with Google
+              Login to book with <Text className='font-rubik-bold'>Google</Text>
             </Text>
             <TouchableOpacity
               onPress={handleLogin}
@@ -49,6 +49,7 @@ export default function SignIn() {
                 </Text>
               </View>
             </TouchableOpacity>
+            <TouchableOpacity>Button</TouchableOpacity>
           </View>
         </ScrollView>
       </SafeAreaView>
