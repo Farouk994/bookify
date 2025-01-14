@@ -34,7 +34,7 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
     fn: getCurrentUser,
   });
   const isLoggedIn = !!user; // if user is present, user is logged in
-  console.log(JSON.stringify(user, null, 2));
+  //   console.log(JSON.stringify(user, null, 2));
   return (
     <GlobalContext.Provider value={{ isLoggedIn, user, loading, refetch }}>
       {children}

@@ -19,8 +19,7 @@ export default function SignIn() {
   const handleLogin = async () => {
     const result = await login();
     if (result) {
-      // console.log('Logged in');
-      refetch;
+      refetch();
     } else {
       Alert.alert('Failed to login');
     }
