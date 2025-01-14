@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity, Touchable } from 'react-native';
+import { View, Text, Image, TouchableOpacity, Alert } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
@@ -7,10 +7,23 @@ import {
 } from 'react-native-gesture-handler';
 import images from '@/constants/images';
 import icons from '@/constants/icons';
+import { login } from '@/lib/appwrite';
+import { useGlobalContext } from '@/lib/global-provider';
+import { Redirect } from 'expo-router';
 
 export default function SignIn() {
-  const handleLogin = () => {
-    console.log('Login');
+  const { refetch, loading, isLoggedIn } = useGlobalContext();
+  if (!loading && isLoggedIn) {
+    return <Redirect href='/' />;
+  }
+  const handleLogin = async () => {
+    const result = await login();
+    if (result) {
+      // console.log('Logged in');
+      refetch;
+    } else {
+      Alert.alert('Failed to login');
+    }
   };
   return (
     <GestureHandlerRootView style={{ flex: 1, backgroundColor: '#ffffff' }}>
