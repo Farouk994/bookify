@@ -20,7 +20,8 @@ import Search from '@/components/Search';
 import { useAppwrite } from '@/lib/useAppwrite';
 import { useGlobalContext } from '@/lib/global-provider';
 import FeaturedCard from '@/components/FeaturedCard';
-import Card from '@/components/Card';
+import { Card } from '@/components/Card';
+// import Card from '@/components/Card';
 // import { getLatestProperties, getProperties } from "@/lib/appwrite";
 
 const Home = () => {
@@ -94,10 +95,11 @@ const Home = () => {
           </View>
         </View>
 
-        {/* cards */}
-        <FeaturedCard />
-        <Card />
-
+        <View className='flex flex-row gap-5 mt-5'>
+          <FeaturedCard />
+          <FeaturedCard />
+          <FeaturedCard />
+        </View>
         <View className='mt-5'>
           <View className='flex flex-row items-center justify-between'>
             <Text className='text-xl font-rubik-bold text-black-300'>
@@ -109,6 +111,10 @@ const Home = () => {
               </Text>
             </TouchableOpacity>
           </View>
+        </View>
+        <View className='flex flex-row gap-5 mt-5'>
+          <Card />
+          <Card />
         </View>
       </View>
     </SafeAreaView>

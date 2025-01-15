@@ -19,6 +19,18 @@ const FeaturedCard = ({ onPress }: Props) => {
         className='size-full rounded-2xl absolute bottom-0'
       />
       <View
+        className='flex flex-row items-center absolute p-1 right-5 top-5 bg-white/90 px-2 py-1.5 rounded-full'
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.9)', // Transparent white
+        }}
+      >
+        <Image source={icons.star} className='size-3.5' />
+        <Text className='text-xs font-rubik-bold text-primary-300 ml-1'>
+          {/* {item.} */}
+          4.4
+        </Text>
+      </View>
+      <View
         className='flex flex-row items-center bg-white/90 px-3 py-1.5 rounded-full absolute top-5 right-5'
         style={{
           backgroundColor: 'rgba(255, 255, 255, 0.9)', // Transparent white
