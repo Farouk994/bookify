@@ -1,5 +1,6 @@
 import {
   ActivityIndicator,
+  Button,
   FlatList,
   Image,
   Text,
@@ -9,25 +10,19 @@ import {
 import { useEffect } from 'react';
 import { router, useLocalSearchParams } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
 import icons from '@/constants/icons';
-
 import Search from '@/components/Search';
-// import Filters from "@/components/Filters";
-// import NoResults from "@/components/NoResults";
-// import { Card, FeaturedCard } from "@/components/Cards";
-
 import { useAppwrite } from '@/lib/useAppwrite';
 import { useGlobalContext } from '@/lib/global-provider';
 import FeaturedCard from '@/components/FeaturedCard';
 import { Card } from '@/components/Card';
 import Filters from '@/components/Filters';
+import seed from '@/lib/seed';
 // import Card from '@/components/Card';
 // import { getLatestProperties, getProperties } from "@/lib/appwrite";
 
 const Home = () => {
   const { user } = useGlobalContext();
-
   const params = useLocalSearchParams<{ query?: string; filter?: string }>();
 
   // const { data: latestProperties, loading: latestPropertiesLoading } =
@@ -56,11 +51,11 @@ const Home = () => {
   //     limit: 6,
   //   });
   // }, [params.filter, params.query]);
-
   const handleCardPress = (id: string) => router.push(`/properties/${id}`);
 
   return (
     <SafeAreaView className='h-full bg-white'>
+      <Button title='Seed' onPress={seed} />
       <FlatList
         data={[1, 2, 3, 4]}
         renderItem={({ item }) => <Card />}
