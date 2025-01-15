@@ -21,6 +21,7 @@ import { useAppwrite } from '@/lib/useAppwrite';
 import { useGlobalContext } from '@/lib/global-provider';
 import FeaturedCard from '@/components/FeaturedCard';
 import { Card } from '@/components/Card';
+import Filters from '@/components/Filters';
 // import Card from '@/components/Card';
 // import { getLatestProperties, getProperties } from "@/lib/appwrite";
 
@@ -112,6 +113,7 @@ const Home = () => {
             </TouchableOpacity>
           </View>
         </View>
+        <Filters />
         <View className='flex flex-row gap-5 mt-5'>
           <Card />
           <Card />
