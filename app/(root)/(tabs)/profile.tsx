@@ -90,7 +90,8 @@ const Profile = () => {
         <View className='flex flex-col mt-5 border-t pt-5'>
           {settings.slice(2).map((item, index) => (
             <SettingsItem
-              key={index}
+              // key={`${item.title}-${index}`}
+              key={`${item.title}-${Math.random()}`}
               icon={item.icon}
               title={item.title}
               showArrow={false}
